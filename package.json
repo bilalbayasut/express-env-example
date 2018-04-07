@@ -1,7 +1,7 @@
 {
-  "name": "express-env-sample",
+  "name": "balubaid-erp",
   "version": "1.0.0",
-  "description": "App example of express environment",
+  "description": "Balubaid Erp",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -9,11 +9,28 @@
   "engines": {
     "node": "^4.2.0"
   },
-  "author": "Kelvin Nguyen",
+  "author": "Bilal Bayasut",
   "dependencies": {
+    "aws-sdk": "^2.222.1",
     "body-parser": "^1.16.0",
+    "bootstrap": "^4.0.0",
+    "cli-spinner": "^0.2.8",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^5.0.1",
+    "ejs": "^2.5.8",
+    "ejs-locals": "^1.0.2",
     "express": "^4.14.1",
+    "express-ejs-layouts": "^2.4.0",
     "express-handlebars": "^3.0.0",
-    "lodash": "^4.17.4"
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.6",
+    "file-system": "^2.2.2",
+    "fluent-ffmpeg": "^2.1.2",
+    "jotform": "^0.1.4",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.4",
+    "mongoose": "^5.0.12",
+    "mongoose-unique-validator": "^2.0.0",
+    "popper.js": "^1.14.2"
   }
 }

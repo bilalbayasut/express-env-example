@@ -15,6 +15,14 @@ function init(server) {
         res.redirect('/home');
     });
 
+    server.get('/test', function (req, res) {
+        res.render('home');
+    });
+
+    server.get('/test/again', function (req, res) {
+        res.render('home');
+    });
+
     server.use('/api', apiRoute);
     server.use('/home', homeRoute);
     server.use('/error', errorRoute);

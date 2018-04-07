@@ -3,7 +3,12 @@
 const
     express = require('express'),
     expressHandlebars = require('express-handlebars'),
-    bodyParser = require('body-parser');
+    path = require('path'),
+    expressLayouts = require('express-ejs-layouts'),
+    bodyParser = require('body-parser'),
+    flash = require('connect-flash'),
+    session = require('express-session'),
+    mongoose = require("mongoose");
 
 module.exports = function() {
     let server = express(),
@@ -22,14 +27,16 @@ module.exports = function() {
         // Returns middleware that parses json
         server.use(bodyParser.json());
 
-        // Setup view engine
-        server.engine('.hbs', expressHandlebars({
-            defaultLayout: 'default',
-            layoutsDir: config.viewDir + '/layouts',
-            extname: '.hbs'
-        }));
-        server.set('views', server.get('viewDir'));
-        server.set('view engine', '.hbs');
+        // Set Public Folder
+        server.use('/public',express.static(path.join(__dirname, '../public')));
+        server.use('/nodemodules',express.static(path.join(__dirname, '../node_modules')));
+        server.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+        server.set('views', path.join(__dirname, '../app/views'));
+
+        server.set('view engine', 'ejs');
+        server.engine('ejs', require('ejs-locals'));
+        server.use(expressLayouts);
+        server.set('layout', 'layouts/default');
 
         // Set up routes
         routes.init(server);
